@@ -1,1 +1,8 @@
 .DS_Store
+flash_nuke.uf2
+getting-started-with-pico.pdf
+micropython/
+pico-pinout.svg
+pico-sdk/
+projects/
+rp2-pico-20220618-v1.19.1.uf2
