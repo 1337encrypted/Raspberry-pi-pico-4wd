@@ -9,24 +9,25 @@ uart1 = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
 #defining pins
 led = Pin(25,Pin.OUT)
 
-AIN1 = Pin(2,Pin.OUT)
-AIN2 = Pin(3, Pin.OUT)
-PWMA1 = PWM(Pin(4))
+PWMA1 = PWM(Pin(10))
+AIN2 = Pin(11, Pin.OUT)
+AIN1 = Pin(12,Pin.OUT)
 
-BIN1 = Pin(5,Pin.OUT)
-BIN2 = Pin(6, Pin.OUT)
-PWMB1 = PWM(Pin(7))
+BIN1 = Pin(13,Pin.OUT)
+BIN2 = Pin(14, Pin.OUT)
+PWMB1 = PWM(Pin(15))
 
-AIN3 = Pin(8,Pin.OUT)
-AIN4 = Pin(9, Pin.OUT)
-PWMA2 = PWM(Pin(10))
 
-BIN3 = Pin(11,Pin.OUT)
-BIN4 = Pin(12, Pin.OUT)
-PWMB2 = PWM(Pin(13))
+PWMA2 = PWM(Pin(16))
+AIN4 = Pin(17, Pin.OUT)
+AIN3 = Pin(18,Pin.OUT)
 
-STBY1 = Pin(14, Pin.OUT)
-STBY2 = Pin(15, Pin.OUT)
+BIN3 = Pin(19,Pin.OUT)
+BIN4 = Pin(20, Pin.OUT)
+PWMB2 = PWM(Pin(21))
+
+#STBY1 = Pin(14, Pin.OUT)
+#STBY2 = Pin(15, Pin.OUT)
 
 PWMA1.freq(1000)
 PWMB1.freq(1000)
