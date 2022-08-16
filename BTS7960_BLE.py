@@ -8,6 +8,9 @@ uart0 = UART(0, baudrate=9600, tx=Pin(12), rx=Pin(13))
     
 #defining pins
 led = Pin(25,Pin.OUT)
+redLed = Pin(0,Pin.OUT)
+BlueLed = Pin(28,Pin.OUT)
+buzzerPin = Pin(16,Pin.OUT)
 
 LPWM1 = PWM(Pin(2))
 RPWM1 = PWM(Pin(3))
@@ -37,9 +40,20 @@ def printinfo():
     print("-"*50)
     print("picoTerm>")
     print(uos.uname())
+    buzzerPin.value(1)
     led.value(1)
+    redLed.value(1)
+    blueLed.value(1)
+    sleep(2)
+    buzzerPin.value(0)
+    led.value(0)
+    redLed.value(1)
+    blueLed.value(1)
 
 def front():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(speed)
@@ -47,6 +61,9 @@ def front():
     LPWM2.duty_u16(speed)
     
 def back():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(speed)
     LPWM1.duty_u16(0)
@@ -54,6 +71,9 @@ def back():
     LPWM2.duty_u16(0)
 
 def left():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(speed)
@@ -61,6 +81,9 @@ def left():
     LPWM2.duty_u16(0)
     
 def right():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(speed)
     LPWM1.duty_u16(0)
@@ -68,6 +91,9 @@ def right():
     LPWM2.duty_u16(speed)
 
 def sharpRightFront():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(0)
@@ -75,6 +101,9 @@ def sharpRightFront():
     LPWM2.duty_u16(speed)
     
 def sharpRightBack():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(speed)
@@ -82,6 +111,9 @@ def sharpRightBack():
     LPWM2.duty_u16(0)
 
 def sharpLeftFront():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(speed)
@@ -89,6 +121,9 @@ def sharpLeftFront():
     LPWM2.duty_u16(0)
     
 def sharpLeftBack():
+    #Color indicator for the motor
+    redLed.value(0)
+    blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(0)
@@ -97,6 +132,9 @@ def sharpLeftBack():
     
 
 def stop():
+    #Color indicator for the motor
+    redLed.value(1)
+    blueLed.value(0)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(0)
@@ -144,26 +182,37 @@ def main():
                 speed = 0
             elif('1' in data):  #speed = 130
                 speed = 6553
+                buzzerPin.value(1)
             elif('2' in data):  #speed = 143
                 speed = 13107
+                buzzerPin.value(0)
             elif('3' in data):  #speed = 157
                 speed = 19660
+                buzzerPin.value(0)
             elif('4' in data):  #speed = 170
                 speed = 26214
+                buzzerPin.value(0)
             elif('5' in data):  #speed = 185
                 speed = 32768
+                buzzerPin.value(0)
             elif('6' in data):  #speed = 200
                 speed = 39321
+                buzzerPin.value(0)
             elif('7' in data):  #speed = 213
                 speed = 45875
+                buzzerPin.value(0)
             elif('8' in data):  #speed = 227
                 speed = 52428
+                buzzerPin.value(0)
             elif('9' in data):  #speed = 240
                 speed = 58982
+                buzzerPin.value(0)
             elif('q' in data):  #speed = 255
                 speed = 65536
-            else:
-                stop()          #Stop
+                buzzerPin.value(0)
+            elif('S' in data):
+                stop()         #Stop
+
             
 if __name__=='__main__':
     main()
