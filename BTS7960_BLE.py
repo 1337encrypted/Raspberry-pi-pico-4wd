@@ -9,7 +9,7 @@ uart0 = UART(0, baudrate=9600, tx=Pin(12), rx=Pin(13))
 #defining pins
 led = Pin(25,Pin.OUT)
 redLed = Pin(0,Pin.OUT)
-BlueLed = Pin(28,Pin.OUT)
+blueLed = Pin(28,Pin.OUT)
 buzzerPin = Pin(16,Pin.OUT)
 
 LPWM1 = PWM(Pin(2))
@@ -52,46 +52,63 @@ def printinfo():
 
 def front():
     #Color indicator for the motor
+    led.value(1)
     redLed.value(0)
     blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
-    RPWM1.duty_u16(0)
-    LPWM1.duty_u16(speed)
+    RPWM1.duty_u16(speed)
+    LPWM1.duty_u16(0)
     RPWM2.duty_u16(0)
     LPWM2.duty_u16(speed)
     
 def back():
     #Color indicator for the motor
+    led.value(1)
     redLed.value(0)
     blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
-    RPWM1.duty_u16(speed)
-    LPWM1.duty_u16(0)
+    RPWM1.duty_u16(0)
+    LPWM1.duty_u16(speed)
     RPWM2.duty_u16(speed)
     LPWM2.duty_u16(0)
 
 def left():
     #Color indicator for the motor
+    led.value(1)
     redLed.value(0)
     blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(0)
     LPWM1.duty_u16(speed)
-    RPWM2.duty_u16(speed)
-    LPWM2.duty_u16(0)
-    
+    RPWM2.duty_u16(0)
+    LPWM2.duty_u16(speed)
+
+
 def right():
     #Color indicator for the motor
+    led.value(1)
     redLed.value(0)
     blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
     RPWM1.duty_u16(speed)
     LPWM1.duty_u16(0)
-    RPWM2.duty_u16(0)
-    LPWM2.duty_u16(speed)
-
+    RPWM2.duty_u16(speed)
+    LPWM2.duty_u16(0)
+    
 def sharpRightFront():
     #Color indicator for the motor
+    led.value(1)
+    redLed.value(0)
+    blueLed.value(1)
+    #Applying voltage to the motor using pulse width modulation (PWM)
+    RPWM1.duty_u16(0)
+    LPWM1.duty_u16(0)
+    RPWM2.duty_u16(speed)
+    LPWM2.duty_u16(0)
+    
+def sharpRightBack():
+    #Color indicator for the motor
+    led.value(1)
     redLed.value(0)
     blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
@@ -99,19 +116,10 @@ def sharpRightFront():
     LPWM1.duty_u16(0)
     RPWM2.duty_u16(0)
     LPWM2.duty_u16(speed)
-    
-def sharpRightBack():
-    #Color indicator for the motor
-    redLed.value(0)
-    blueLed.value(1)
-    #Applying voltage to the motor using pulse width modulation (PWM)
-    RPWM1.duty_u16(0)
-    LPWM1.duty_u16(speed)
-    RPWM2.duty_u16(0)
-    LPWM2.duty_u16(0)
 
 def sharpLeftFront():
     #Color indicator for the motor
+    led.value(1)
     redLed.value(0)
     blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
@@ -122,17 +130,19 @@ def sharpLeftFront():
     
 def sharpLeftBack():
     #Color indicator for the motor
+    led.value(1)
     redLed.value(0)
     blueLed.value(1)
     #Applying voltage to the motor using pulse width modulation (PWM)
-    RPWM1.duty_u16(0)
+    RPWM1.duty_u16(speed)
     LPWM1.duty_u16(0)
-    RPWM2.duty_u16(speed)
+    RPWM2.duty_u16(0)
     LPWM2.duty_u16(0)
     
 
 def stop():
     #Color indicator for the motor
+    led.value(0)
     redLed.value(1)
     blueLed.value(0)
     #Applying voltage to the motor using pulse width modulation (PWM)
@@ -140,7 +150,7 @@ def stop():
     LPWM1.duty_u16(0)
     RPWM2.duty_u16(0)
     LPWM2.duty_u16(0)
-    print("Stop: 0")
+    print("Stop: ",speed)
 
 #def setup_uart():             #setup the uart for bluetooth connection
     
