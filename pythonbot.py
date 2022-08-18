@@ -42,8 +42,11 @@ def printinfo():
     print("picoTerm>")
     print(uos.uname())
     led.value(1)
+    sleep(10)
 
 def front():
+    #led indication
+    led.value(1)
     AIN1.value(1)
     AIN2.value(0)
     BIN1.value(1)
@@ -59,6 +62,8 @@ def front():
     PWMB2.duty_u16(speed)
     
 def back():
+    #led indication
+    led.value(1)
     AIN1.value(0)
     AIN2.value(1)
     BIN1.value(0)
@@ -74,6 +79,8 @@ def back():
     PWMB2.duty_u16(speed)
 
 def left():
+    #led indication
+    led.value(1)
     AIN1.value(0)
     AIN2.value(1)
     BIN1.value(0)
@@ -89,6 +96,8 @@ def left():
     PWMB2.duty_u16(speed)
     
 def right():
+    #led indication
+    led.value(1)
     AIN1.value(1)
     AIN2.value(0)
     BIN1.value(1)
@@ -104,6 +113,8 @@ def right():
     PWMB2.duty_u16(speed)
 
 def leftShift():
+    #led indication
+    led.value(1)
     AIN1.value(0)
     AIN2.value(1)
     BIN1.value(1)
@@ -119,6 +130,8 @@ def leftShift():
     PWMB2.duty_u16(speed)
     
 def rightShift():
+    #led indication
+    led.value(1)
     AIN1.value(1)
     AIN2.value(0)
     BIN1.value(0)
@@ -132,8 +145,79 @@ def rightShift():
     PWMB1.duty_u16(speed)
     PWMA2.duty_u16(speed)
     PWMB2.duty_u16(speed)
+    
+def leftDiagonalFront():
+    #led indication
+    led.value(1)
+    AIN1.value(1)
+    AIN2.value(0)
+    BIN1.value(0)
+    BIN2.value(0)
+    AIN3.value(0)
+    AIN4.value(0)
+    BIN3.value(1)
+    BIN4.value(0)
+    #Applying voltage to the motor using pulse width modulation (PWM)
+    PWMA1.duty_u16(speed)
+    PWMB1.duty_u16(speed)
+    PWMA2.duty_u16(speed)
+    PWMB2.duty_u16(speed)
+    
+def rightDiagonalFront():
+    #led indication
+    led.value(1)
+    AIN1.value(0)
+    AIN2.value(0)
+    BIN1.value(1)
+    BIN2.value(0)
+    AIN3.value(1)
+    AIN4.value(0)
+    BIN3.value(0)
+    BIN4.value(0)
+    #Applying voltage to the motor using pulse width modulation (PWM)
+    PWMA1.duty_u16(speed)
+    PWMB1.duty_u16(speed)
+    PWMA2.duty_u16(speed)
+    PWMB2.duty_u16(speed)
+    
+def leftDiagonalBack():
+    #led indication
+    led.value(1)
+    AIN1.value(0)
+    AIN2.value(1)
+    BIN1.value(0)
+    BIN2.value(0)
+    AIN3.value(0)
+    AIN4.value(0)
+    BIN3.value(0)
+    BIN4.value(1)
+    #Applying voltage to the motor using pulse width modulation (PWM)
+    PWMA1.duty_u16(speed)
+    PWMB1.duty_u16(speed)
+    PWMA2.duty_u16(speed)
+    PWMB2.duty_u16(speed)
+    
+def rightDiagonalBack():
+    #led indication
+    led.value(1)
+    AIN1.value(0)
+    AIN2.value(0)
+    BIN1.value(0)
+    BIN2.value(1)
+    AIN3.value(0)
+    AIN4.value(1)
+    BIN3.value(0)
+    BIN4.value(0)
+    #Applying voltage to the motor using pulse width modulation (PWM)
+    PWMA1.duty_u16(speed)
+    PWMB1.duty_u16(speed)
+    PWMA2.duty_u16(speed)
+    PWMB2.duty_u16(speed)
+
 
 def stop():
+    #led indication
+    led.value(0)
     AIN1.value(0)
     AIN2.value(0)
     BIN1.value(0)
@@ -148,7 +232,6 @@ def stop():
     PWMB1.duty_u16(0)
     PWMA2.duty_u16(0)
     PWMB2.duty_u16(0)
-    print("Stop: 0")
 
 #def setup_uart():             #setup the uart for bluetooth connection
     
@@ -175,11 +258,23 @@ def main():
                 left()
                 print("Left: ",speed)
             elif('I' in data): #Right shift
-                rightShift()
-                print("Right Shift: ",speed)
+                rightDiagonalFront()
+                print("Right Diagonal Front: ",speed)
             elif('G' in data): #Left shift
+                leftDiagonalFront()
+                print("Left Diagonal Front: ",speed)
+            elif('H' in data): #Left shift
+                leftDiagonalBack()
+                print("Left Diagonal Back: ",speed)
+            elif('J' in data): #Left shift
+                rightDiagonalBack()
+                print("Right Diagonal Back: ",speed)
+            elif('W' in data): #Left shift
                 leftShift()
                 print("Left Shift: ",speed)
+            elif('U' in data): #Left shift
+                rightShift()
+                print("Right Shift: ",speed)
             elif('0' in data): #speed = 115
                 speed = 0
             elif('1' in data): #speed = 130
@@ -204,6 +299,8 @@ def main():
                 speed = 65536
             else:
                 stop()    #Stop
+                print("Stop: ",speed)
             
 if __name__=='__main__':
     main()
+
