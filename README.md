@@ -14,7 +14,7 @@ rightShift: Slides the robot to right in the x axis.
 printInfo: Prints system name and embedded operating system name
 changeSpeed:  Updates the global speed variable ranging from 1-10 speeds
 stop: Stop all the motors
-<pre>
+</pre>
 
 <h2>HARDWARE</h2>
 <table>
@@ -48,13 +48,6 @@ stop: Stop all the motors
     <td>4</td>
     <td>Omnidirectional wheels</td>
 </tr>  
-<!--<tr>-->
-<!--    <td></td>-->
-<!--    <td></td>-->
-<!--    <td></td>-->
-<!--    <td></td>-->
-<!--    <td></td>-->
-<!--</tr>-->
 </table>
 
 <h2>METHODOLOGY</h2>
@@ -148,8 +141,8 @@ stop: Stop all the motors
 <h2>ALGORITHM</h2>
 <pre>
 Step1: Start                                            
-Step2: Print system info [5][3]
-Step3: Initialise global variables and uart objects    [1]
+Step2: Print system info
+Step3: Initialise global variables and uart objects
 Step4: while True
 Step5: if uart.any()[2]
 Step4: data <= uart.read()[2]
@@ -174,4 +167,4 @@ Step21: elif (‘8’ in data): speed <= 80
 Step22: elif (‘9’ in data): speed <= 90
 Step23: elif (‘10’ in data): speed <= 100
 Step24: else(): stop()
-<pre>
+</pre>
