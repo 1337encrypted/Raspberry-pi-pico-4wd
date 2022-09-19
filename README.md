@@ -1,4 +1,4 @@
-<h1 align="center"><b>OMNIDIRECTIONAL ROBOT</b><h1>
+<h1 align="center"><strong>OMNIDIRECTIONAL ROBOT</strong><h1>
 <h2>FUNCTIONS</h2>
 <ol>
     <li><b>front:</b> Moves the robot forward in y axis.</li>
@@ -20,32 +20,32 @@
 <tr>
     <td>Name</td>
     <td>Quantity</td>
-    <td>Description</td>
+    <td><em>Description</em></td>
 </tr>
 <tr>
     <td>Raspberry pi pico RP2040 microcontroller</td>
     <td>1</td>
-    <td>control the motors and sensors</td>
+    <td><em>control the motors and sensors</em></td>
 </tr>
 <tr>
     <td>12v DC Geared Motors</td>
     <td>4</td>
-    <td>300 rpm</td>
+    <td><em>300 rpm</em></td>
 </tr>
 <tr>
     <td>Dual tb6612fng</td>
     <td>2</td>
-    <td>H bridge for motor control</td>
+    <td><em>H bridge for motor control</em></td>
 </tr>
 <tr>
     <td>Lipo Battery</td>
     <td>1</td>
-    <td>Power supply 2200 mah</td>
+    <td><em>Power supply 2200 mah</em></td>
 </tr>
 <tr>
     <td>Mecanum wheels</td>
     <td>4</td>
-    <td>Omnidirectional wheels</td>
+    <td><em>Omnidirectional wheels</em></td>
 </tr>  
 </table>
 
