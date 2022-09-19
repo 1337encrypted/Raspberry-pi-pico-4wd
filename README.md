@@ -1,19 +1,19 @@
 <h1><b><center>OMNIDIRECTIONAL ROBOT</center></b><h1>
 <h2>FUNCTIONS</h2>
-<pre>
-<b>front:</b> Moves the robot forward in y axis.
-<b>back:</b> Moves the robot backward in the y axis.
-<b>left:</b> Turns the robot in the left direction.
-<b>rightDiagonalFront:</b> Moves diagonally in positive X axis and positive Y axis
-<b>rightDiagonalBack:</b> Moves diagonally in positive X and negative Y axis
-<b>leftDiagonalFront:</b> Moves diagonally in negative X and positive Y axis
-<b>leftDiagonalBack:</b> Moves diagonally in negative X and negative Y axis
-<b>right:</b> Turns the robot in the right direction.
-<b>rightShift:</b> Slides the robot to right in the x axis.
-<b>printInfo:</b> Prints system name and embedded operating system name
-<b>changeSpeed:</b>  Updates the global speed variable ranging from 1-10 speeds
-<b>stop:</b> Stop all the motors
-</pre>
+<ol>
+    <li><b>front:</b> Moves the robot forward in y axis.</li>
+    <li><b>back:</b> Moves the robot backward in the y axis.</li>
+    <li><b>left:</b> Turns the robot in the left direction.</li>
+    <li><b>rightDiagonalFront:</b> Moves diagonally in positive X axis and positive Y axis.</li>
+    <li><b>rightDiagonalBack:</b> Moves diagonally in positive X and negative Y axis.</li>
+    <li><b>leftDiagonalFront:</b> Moves diagonally in negative X and positive Y axis.</li>
+    <li><b>leftDiagonalBack:</b> Moves diagonally in negative X and negative Y axis.</li>
+    <li><b>right:</b> Turns the robot in the right direction.</li>
+    <li><b>rightShift:</b> Slides the robot to right in the x axis.</li>
+    <li><b>printInfo:</b> Prints system name and embedded operating system name.</li>
+    <li><b>changeSpeed:</b>  Updates the global speed variable ranging from 1-10 speeds.</li>
+    <li><b>stop:</b> Stop all the motors.</li>
+</ol>
 
 <h2>HARDWARE</h2>
 <table>
@@ -138,32 +138,32 @@
 </table>
 
 <h2>ALGORITHM</h2>
-<pre>
-Step1: Start                                            
-Step2: Print system info
-Step3: Initialise global variables and uart objects
-Step4: while True
-Step5: if uart.any()
-Step4: data <= uart.read()
-Step4: If (‘F’ in data): front()    
-Step5: elif  (‘B’ in data): back()
-Step6: elif  (‘L’ in data): left()
-Step7: elif  (‘R’ in data): right()
-Step8: elif  (‘I’ in data): rightDiagonalFront()
-Step9: elif  (‘G’ in data): leftDiagonalFront()
-Step10: elif  (‘H’ in data): leftDiagonalBack()
-Step11: elif  (‘J’ in data): rightDiagonalBack()
-Step12: elif  (‘W’ in data): leftShift()
-Step13: elif  (‘U’ in data): rightShift()
-Step14: elif (‘1’ in data): speed <= 10
-Step15: elif (‘2’ in data): speed <= 20
-Step16: e1if (‘3’ in data): speed <= 30
-Step17: elif (‘4’ in data): speed <= 40
-Step18: elif (‘5’ in data): speed <= 50
-Step19: elif (‘6’ in data): speed <= 60
-Step20: elif (‘7’ in data): speed <= 70
-Step21: elif (‘8’ in data): speed <= 80
-Step22: elif (‘9’ in data): speed <= 90
-Step23: elif (‘10’ in data): speed <= 100
-Step24: else(): stop()
-</pre>
+<ul>
+    <li>Step01: Start</li>                                          
+    <li>Step02: Print system info</li>
+    <li>Step03: Initialise global variables and uart objects</li>
+    <li>Step04: while True</li>
+    <li>Step05: if uart.any()</li>
+    <li>Step04: data <= uart.read()</li>
+    <li>Step04: If (‘F’ in data): front()</li>    
+    <li>Step05: elif (‘B’ in data): back()</li>
+    <li>Step06: elif (‘L’ in data): left()</li>
+    <li>Step07: elif (‘R’ in data): right()</li>
+    <li>Step08: elif (‘I’ in data): rightDiagonalFront()</li>
+    <li>Step09: elif (‘G’ in data): leftDiagonalFront()</li>
+    <li>Step10: elif (‘H’ in data): leftDiagonalBack()</li>
+    <li>Step11: elif (‘J’ in data): rightDiagonalBack()</li>
+    <li>Step12: elif (‘W’ in data): leftShift()</li>
+    <li>Step13: elif (‘U’ in data): rightShift()</li>
+    <li>Step14: elif (‘1’ in data): speed <= 10</li>
+    <li>Step15: elif (‘2’ in data): speed <= 20</li>
+    <li>Step16: e1if (‘3’ in data): speed <= 30</li>
+    <li>Step17: elif (‘4’ in data): speed <= 40</li>
+    <li>Step18: elif (‘5’ in data): speed <= 50</li>
+    <li>Step19: elif (‘6’ in data): speed <= 60</li>
+    <li>Step20: elif (‘7’ in data): speed <= 70</li>
+    <li>Step21: elif (‘8’ in data): speed <= 80</li>
+    <li>Step22: elif (‘9’ in data): speed <= 90</li>
+    <li>Step23: elif (‘10’ in data): speed <= 100</li>
+    <li>Step24: else(): stop()</li>
+</ul>
