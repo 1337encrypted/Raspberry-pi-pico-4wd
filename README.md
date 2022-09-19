@@ -1,5 +1,5 @@
 <h1>OMNIDIRECTIONAL ROBOT<h1>
-<h2>FUNCTIONS<h2>
+<h2>FUNCTIONS</h2>
 <pre>
 front: Moves the robot forward in y axis.
 back: Moves the robot backward in the y axis.
@@ -16,7 +16,7 @@ changeSpeed:  Updates the global speed variable ranging from 1-10 speeds
 stop: Stop all the motors
 <pre>
 
-<h1>HARDWARE<h1>
+<h2>HARDWARE</h2>
 <table>
 <tr>
     <td>Name</td>
@@ -57,7 +57,7 @@ stop: Stop all the motors
 <!--</tr>-->
 </table>
 
-<h1>METHODOLOGY<h1>
+<h2>METHODOLOGY</h2>
 <table>
 <tr>
     <th>Functions</th>
@@ -145,7 +145,7 @@ stop: Stop all the motors
 </tr>
 </table>
 
-<h1>ALGORITHM<h1>
+<h2>ALGORITHM</h2>
 <pre>
 Step1: Start                                            
 Step2: Print system info [5][3]
