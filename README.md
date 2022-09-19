@@ -3,15 +3,16 @@
 <ol>
     <li><b>front:</b> Moves the robot forward in y axis.</li>
     <li><b>back:</b> Moves the robot backward in the y axis.</li>
-    <li><b>left:</b> Turns the robot in the left direction.</li>
+    <li><b>left:</b> Turns the robot in the anti-clockwise direction.</li>
+    <li><b>right:</b> Turns the robot in clockwise direction.</li>
     <li><b>rightDiagonalFront:</b> Moves diagonally in positive X axis and positive Y axis.</li>
     <li><b>rightDiagonalBack:</b> Moves diagonally in positive X and negative Y axis.</li>
     <li><b>leftDiagonalFront:</b> Moves diagonally in negative X and positive Y axis.</li>
     <li><b>leftDiagonalBack:</b> Moves diagonally in negative X and negative Y axis.</li>
-    <li><b>right:</b> Turns the robot in the right direction.</li>
+    <li><b>leftShift:</b> Slides the robot to left in the x axis.</li>
     <li><b>rightShift:</b> Slides the robot to right in the x axis.</li>
     <li><b>printInfo:</b> Prints system name and embedded operating system name.</li>
-    <li><b>changeSpeed:</b>  Updates the global speed variable ranging from 1-10 speeds.</li>
+    <li><b>changeSpeed:</b> Updates the global speed variable ranging from 1-10 speeds.</li>
     <li><b>stop:</b> Stop all the motors.</li>
 </ol>
 
