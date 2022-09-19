@@ -1,19 +1,18 @@
-<h1>OMNIDIRECTIONAL ROBOT<h1>
+<h1><b><center>OMNIDIRECTIONAL ROBOT</center></b><h1>
 <h2>FUNCTIONS</h2>
 <pre>
-front: Moves the robot forward in y axis.
-back: Moves the robot backward in the y axis.
-left: Turns the robot in the left direction.
-rightDiagonalFront: Moves diagonally in positive X axis and positive Y axis
-rightDiagonalBack: Moves diagonally in positive X and negative Y axis
-leftDiagonalFront: Moves diagonally in negative X and positive Y axis
-leftDiagonalBack: Moves diagonally in negative X and negative Y axis
-right: Turns the robot in the right direction.
-leftShift: Slides the robot to left in the x axis.
-rightShift: Slides the robot to right in the x axis.
-printInfo: Prints system name and embedded operating system name
-changeSpeed:  Updates the global speed variable ranging from 1-10 speeds
-stop: Stop all the motors
+<b>front:</b> Moves the robot forward in y axis.
+<b>back:</b> Moves the robot backward in the y axis.
+<b>left:</b> Turns the robot in the left direction.
+<b>rightDiagonalFront:</b> Moves diagonally in positive X axis and positive Y axis
+<b>rightDiagonalBack:</b> Moves diagonally in positive X and negative Y axis
+<b>leftDiagonalFront:</b> Moves diagonally in negative X and positive Y axis
+<b>leftDiagonalBack:</b> Moves diagonally in negative X and negative Y axis
+<b>right:</b> Turns the robot in the right direction.
+<b>rightShift:</b> Slides the robot to right in the x axis.
+<b>printInfo:</b> Prints system name and embedded operating system name
+<b>changeSpeed:</b>  Updates the global speed variable ranging from 1-10 speeds
+<b>stop:</b> Stop all the motors
 </pre>
 
 <h2>HARDWARE</h2>
@@ -144,8 +143,8 @@ Step1: Start
 Step2: Print system info
 Step3: Initialise global variables and uart objects
 Step4: while True
-Step5: if uart.any()[2]
-Step4: data <= uart.read()[2]
+Step5: if uart.any()
+Step4: data <= uart.read()
 Step4: If (‘F’ in data): front()    
 Step5: elif  (‘B’ in data): back()
 Step6: elif  (‘L’ in data): left()
