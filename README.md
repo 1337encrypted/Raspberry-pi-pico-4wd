@@ -1,4 +1,4 @@
-<h1><b><center>OMNIDIRECTIONAL ROBOT</center></b><h1>
+<h1 align="center"><b>OMNIDIRECTIONAL ROBOT</b><h1>
 <h2>FUNCTIONS</h2>
 <ol>
     <li><b>front:</b> Moves the robot forward in y axis.</li>
