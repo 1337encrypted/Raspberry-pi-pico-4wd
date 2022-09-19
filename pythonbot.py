@@ -2,9 +2,8 @@ from machine import Pin, PWM, UART
 from utime import sleep
 import uos
 
-#create the uart
-#uart = UART(id,baudrate,tx,rx)
-uart1 = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
+#create the uart connection for bluetooth communication
+uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
     
 #defining pins
 led = Pin(25,Pin.OUT)
@@ -26,9 +25,7 @@ BIN3 = Pin(19,Pin.OUT)
 BIN4 = Pin(20, Pin.OUT)
 PWMB2 = PWM(Pin(21))
 
-#STBY1 = Pin(14, Pin.OUT)
-#STBY2 = Pin(15, Pin.OUT)
-
+#set motor pulse width modulation (PWM) frequency to 1000 cycles/sec
 PWMA1.freq(1000)
 PWMB1.freq(1000)
 PWMA2.freq(1000)
@@ -47,6 +44,7 @@ def printinfo():
 def front():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(1)
     AIN2.value(0)
     BIN1.value(1)
@@ -64,6 +62,7 @@ def front():
 def back():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(0)
     AIN2.value(1)
     BIN1.value(0)
@@ -81,6 +80,7 @@ def back():
 def left():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(0)
     AIN2.value(1)
     BIN1.value(0)
@@ -98,6 +98,7 @@ def left():
 def right():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(1)
     AIN2.value(0)
     BIN1.value(1)
@@ -115,6 +116,7 @@ def right():
 def leftShift():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(0)
     AIN2.value(1)
     BIN1.value(1)
@@ -132,6 +134,7 @@ def leftShift():
 def rightShift():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(1)
     AIN2.value(0)
     BIN1.value(0)
@@ -149,6 +152,7 @@ def rightShift():
 def leftDiagonalFront():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(1)
     AIN2.value(0)
     BIN1.value(0)
@@ -166,6 +170,7 @@ def leftDiagonalFront():
 def rightDiagonalFront():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(0)
     AIN2.value(0)
     BIN1.value(1)
@@ -183,6 +188,7 @@ def rightDiagonalFront():
 def leftDiagonalBack():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(0)
     AIN2.value(1)
     BIN1.value(0)
@@ -200,6 +206,7 @@ def leftDiagonalBack():
 def rightDiagonalBack():
     #led indication
     led.value(1)
+    #set motor direction
     AIN1.value(0)
     AIN2.value(0)
     BIN1.value(0)
@@ -218,6 +225,7 @@ def rightDiagonalBack():
 def stop():
     #led indication
     led.value(0)
+    #set motor direction
     AIN1.value(0)
     AIN2.value(0)
     BIN1.value(0)
@@ -233,48 +241,46 @@ def stop():
     PWMA2.duty_u16(0)
     PWMB2.duty_u16(0)
 
-#def setup_uart():             #setup the uart for bluetooth connection
-    
-
 def main():
-    printinfo()                #printing the board details
-    global speed
+    printinfo()               #printing the board details
+    global speed               #To access the global speed variable
     while True:
-        if uart1.any():         #Checking if data available
-            data = uart1.read()#Getting data
+        if uart.any():       #Checking if data available
+            data = uart.read()#Getting data
             #data = str(data)
             #stop()              #Stop
             #print(data)
-            if('F' in data):   #Forward
+            if('F' in data):   #Front
                 front()
                 print("Front:",speed)
-            elif('B' in data): #Backward
+            elif('B' in data): #Back
                 back()
                 print("Back: ",speed)
-            elif('R' in data): #Turn Right
+            elif('R' in data): #Right
                 right()
                 print("Right: ",speed)
-            elif('L' in data): #Turn Left
+            elif('L' in data): #Left
                 left()
                 print("Left: ",speed)
-            elif('I' in data): #Right shift
+            elif('I' in data): #Right Diagonal Front
                 rightDiagonalFront()
                 print("Right Diagonal Front: ",speed)
-            elif('G' in data): #Left shift
+            elif('G' in data): #Left Diagonal Front
                 leftDiagonalFront()
                 print("Left Diagonal Front: ",speed)
-            elif('H' in data): #Left shift
+            elif('H' in data): #Left Diagonal Back
                 leftDiagonalBack()
                 print("Left Diagonal Back: ",speed)
-            elif('J' in data): #Left shift
+            elif('J' in data): #Right Diagonal Back
                 rightDiagonalBack()
                 print("Right Diagonal Back: ",speed)
             elif('W' in data): #Left shift
                 leftShift()
                 print("Left Shift: ",speed)
-            elif('U' in data): #Left shift
+            elif('U' in data): #Right shift
                 rightShift()
                 print("Right Shift: ",speed)
+            #speed is between 0-65536 as it has 16 bit pwm registers so 2^16 = 65536
             elif('0' in data): #speed = 115
                 speed = 0
             elif('1' in data): #speed = 130
