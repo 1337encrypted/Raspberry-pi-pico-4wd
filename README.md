@@ -168,3 +168,5 @@
     <li>Step23: elif (‘10’ in data): speed <= 100</li>
     <li>Step24: else(): stop()</li>
 </ul>
+<h2>Flowchart<h2>
+<img src="/pics/Flowchart.png" alt="Flowchart.png" style="height: 100px; width:100px;"/>
