@@ -169,4 +169,4 @@
     <li>Step24: else(): stop()</li>
 </ul>
 <h2>Flowchart<h2>
-<img src="/pics/Flowchart.png" alt="Flowchart.png" style="height: 100px; width:100px;"/>
+<img src="/pics/Flowchart.png" alt="Flowchart.png" style="height: 500px; width:500px;"/>
