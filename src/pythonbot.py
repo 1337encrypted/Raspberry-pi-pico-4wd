@@ -54,7 +54,7 @@ def front():
     BIN3.value(1)
     BIN4.value(0)
     #Applying voltage to the motor using pulse width modulation (PWM)
-    PWMA1.duty_u16(speed)
+    PWMA1.duty_u16(speed)               #2^16 = 65536
     PWMB1.duty_u16(speed)
     PWMA2.duty_u16(speed)
     PWMB2.duty_u16(speed)
@@ -247,9 +247,6 @@ def main():
     while True:
         if uart.any():       #Checking if data available
             data = uart.read()#Getting data
-            #data = str(data)
-            #stop()              #Stop
-            #print(data)
             if('F' in data):   #Front
                 front()
                 print("Front:",speed)
