@@ -300,7 +300,7 @@ def main():
                 speed = 58982
             elif('q' in data): #speed = 255
                 speed = 65536
-            else:
+            elif('S' in data): #stop
                 stop()    #Stop
                 print("Stop: ",speed)
             
