@@ -1,0 +1,10 @@
+let btn= document.querySelector("#btn");
+let sidebar= document.querySelector(".sidebar");
+
+btn.onclick=function(){
+  sidebar.classList.toggle("active");
+}
+
+window.onscroll = ()=>{
+  sidebar.classList.remove('active');
+}
